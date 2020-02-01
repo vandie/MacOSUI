@@ -27,21 +27,21 @@
             outline:none;
         }
 
-        &--min {
+        &[type="min"] {
             background: color(yellow);
             &:hover, &:active {
                 background: trueen(color(yellow), 10%);
             }
         }
 
-        &--max {
+        &[type="max"] {
             background: color(green);
             &:hover, &:active {
                 background: trueen(color(green), 10%);
             }
         }
 
-        &--close {
+        &[type="close"] {
             background: color(red);
             &:hover, &:active {
                 background: trueen(color(red), 10%);
@@ -50,4 +50,4 @@
     }
 </style>
 
-<button class="window-control window-control--{type}" on:click={action}>{text}</button>
+<button class="window-control" type=[type] on:click={action}>{text}</button>

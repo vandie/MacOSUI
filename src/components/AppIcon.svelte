@@ -57,6 +57,6 @@
     }
 </style>
 
-<button class="app-icon" active={active} name={name}>
+<button class="app-icon" active={active} name={name} on:click={action}>
     {@html icon}
 </button>

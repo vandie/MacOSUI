@@ -10,7 +10,6 @@
         background: color(grey4, 7);
         backdrop-filter: blur(3px);
         border-bottom: 0;
-
         min-width: 4rem;
         min-height: 4rem;
         position: fixed;
