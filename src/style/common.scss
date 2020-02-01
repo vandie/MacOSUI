@@ -1,0 +1,26 @@
+@import './variables.scss';
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+body {
+    background: url("https://i1.wp.com/512pixels.net/wp-content/uploads/2019/10/10-14-Mojave-16.jpg?fit=1155%2C594") no-repeat;
+    background-position: top left;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+:root {
+    @include mapToColorVars($lightColors);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include mapToColorVars($darkColors);
+    }
+}

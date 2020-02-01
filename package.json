@@ -1,0 +1,25 @@
+{
+  "name": "mikevdv.dev",
+  "version": "1.0.0",
+  "description": "The site of Vandie",
+  "main": "index.js",
+  "scripts": {
+    "build": "buildTarget=production rollup -c",
+    "start": "buildTarget=dev rollup -c --watch"
+  },
+  "author": "Michael Van Der Velden",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.13.1",
+    "rollup": "^1.29.0",
+    "rollup-plugin-inline-svg": "^1.1.1",
+    "rollup-plugin-livereload": "^1.0.4",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-scss": "^2.1.0",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-svelte": "^5.1.1",
+    "svelte": "^3.17.1",
+    "svelte-preprocess": "^3.3.0"
+  }
+}
