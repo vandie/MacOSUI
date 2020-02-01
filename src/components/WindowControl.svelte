@@ -30,24 +30,24 @@
         &[type="min"] {
             background: color(yellow);
             &:hover, &:active {
-                background: trueen(color(yellow), 10%);
+                background: color(yellow,2);
             }
         }
 
         &[type="max"] {
             background: color(green);
             &:hover, &:active {
-                background: trueen(color(green), 10%);
+                background: color(green,2);
             }
         }
 
         &[type="close"] {
             background: color(red);
             &:hover, &:active {
-                background: trueen(color(red), 10%);
+                background: color(red,2);
             }
         }
     }
 </style>
 
-<button class="window-control" type=[type] on:click={action}>{text}</button>
+<button class="window-control" type={type} on:click={action}>{text}</button>
