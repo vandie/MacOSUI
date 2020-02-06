@@ -68,7 +68,14 @@ function createNav() {
 
 	return {
 		subscribe,
-		reset: () => set(getDefaultNav())
+        reset: () => set(getDefaultNav()),
+        set: (nav) => {
+            if(nav.isArray && !nav.map(navItem => navItem instanceof NavItem).includes(false)){
+                return set(nav);
+            }
+
+            throw new Error("Invalid Nav Array");
+        }
 	};
 }
 

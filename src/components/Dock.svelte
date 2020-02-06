@@ -1,7 +1,12 @@
 <script>
     import AppIcon from "./AppIcon.svelte";
+    import githubIcon from "../assets/icons/Octocat.svg";
 
     export let side = "right";
+
+    const openGithub = () => {
+        window.open("https://github.com/vandie/MacOSUI",'_blank');
+    }
 </script>
 <style lang="scss">
     @import 'variables.scss';
@@ -27,7 +32,5 @@
 </style>
 <section class="dock">
     <AppIcon active={true}/>
-    <AppIcon/>
-    <AppIcon/>
-    <AppIcon/>
+    <AppIcon name="Github Repo" icon={githubIcon} action={openGithub}/>
 </section>
