@@ -16,6 +16,7 @@
         padding: 0;
         padding-bottom: .6rem;
         margin: 0;
+        overflow: visible;
     }
 
     :global(.app-icon svg) {
@@ -23,6 +24,7 @@
         height: 100%;
         width: 100%;
         object-position: center;
+        filter: drop-shadow( 0 0 .2rem color(grey4, 2));
     }
 
     .app-icon[active=true]::after {
@@ -45,8 +47,6 @@
         border: 1px solid color(grey0, 9);
         position: absolute;
         top: -2.5rem;
-        left: 0;
-        right: 0;
         margin-left: 50%;
         transform: translateX(-50%);
         content: attr(name);
@@ -54,6 +54,8 @@
         padding: .2rem;
         border-radius: .2rem;
         background: color(grey4, 4);
+        display: block;
+        white-space: nowrap;
     }
 </style>
 
