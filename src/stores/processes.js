@@ -1,54 +1,61 @@
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 import appleIcon from "../assets/icons/apple.svg";
-import { nav } from './menu.js';
-
+import { nav, NavItem } from "./menu.js";
 
 export class app {
-    constructor(name, app, icon) {
-        this.name = name || "App";
-        this.icon = "" || appleIcon;
-        this.nav = [];
-        this.program = app;
-        this.open = false;
-        this.running = false;
-    }
+  constructor(name, app, icon) {
+    this.name = name || "App";
+    this.icon = "" || appleIcon;
+    this.nav = [new NavItem(name)];
+    this.program = app;
+    this.open = false;
+    this.running = false;
+    this.id =
+      Math.random()
+        .toString(36)
+        .substring(2) + Date.now().toString(36);
+  }
 
-    setIcon(icon) {
-        this.icon = icon;
-    }
+  setIcon(icon) {
+    this.icon = icon;
+  }
 
-    setName(name) {
-        this.name = name;
-    }
+  setName(name) {
+    this.name = name;
+  }
 
-    open() {
-        this.open = true;
-        this.running = true;
-        nav.set(this.nav);
-    }
+  launch() {
+    this.open = true;
+    this.running = true;
+    console.log(this.nav);
+    nav.set(this.nav);
+    processes.updateProcess(this);
+  }
 
-    minimise() {
-        this.open = false;
-    }
+  minimise() {
+    this.open = false;
+  }
 
-    close() {
-        this.open = false;
-        this.running = false;
-        nav.reset();
-    }
+  close() {
+    this.open = false;
+    this.running = false;
+    nav.reset();
+  }
 }
 
 function createProcessList() {
-	const { subscribe, set, update } = writable([]);
+  const { subscribe, set, update } = writable([]);
 
-	return {
-        subscribe,
-        addProcess: (process) => {
-            if(!process instanceof app) throw new Error("Invalid Process");
-            update(a => a.concat([process]))
-        },
-		reset: () => set([])
-	};
+  return {
+    subscribe,
+    addProcess: process => {
+      if (!process instanceof app) throw new Error("Invalid Process");
+      update(a => a.concat([process]));
+    },
+    updateProcess: process =>
+      update(all => all.map(p => (p.id === process.id ? process : p))),
+    reset: () => set([])
+  };
 }
 
 export const processes = createProcessList();
