@@ -28,7 +28,7 @@ export class app {
     this.open = true;
     this.running = true;
     console.log(this.nav);
-    nav.set(this.nav);
+    nav.set(...this.nav);
     processes.updateProcess(this);
   }
 
